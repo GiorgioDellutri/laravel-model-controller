@@ -16,9 +16,33 @@
 </head>
 
 <body>
-
     <main class="bg-light">
-
+        <div class="container-fluid">
+            <div class="row p-3">
+                <div class="col-12">
+                    <h1>Lista film:</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                @forelse ($movies as $movie)
+                    <div class="col-4 p-3">
+                        <div class="card p-4">
+                            <h3>
+                                {{ $movie->title }}
+                            </h3>
+                            <h5> Original title: {{ $movie->original_title }}</h5>
+                            <h6>Nationality: {{ $movie->nationality }}</h6>
+                            <h6>Release date: {{ $movie->date }}</h6>
+                            <h6>Vote: {{ $movie->vote }}</h6>
+                        </div>
+                    </div>
+                @empty
+                    <p>Non ci sono film da mostrare</p>
+                @endforelse
+            </div>
+        </div>
     </main>
 
 </body>
